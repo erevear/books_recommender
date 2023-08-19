@@ -25,12 +25,12 @@ with st.spinner('Loading Model Into Memory....'):
 
 path = st.text_input('Enter a user ID for recommendations.. ','8842281e1d1347389f2ab93d60773d4d')
 if path is not None:
-    content = requests.get(path).content
+    # content = requests.get(path).content
 
     st.write("Pulling recommendations :")
     with st.spinner('classifying.....'):
       # label =np.argmax(model.predict(decode_img(content)),axis=1)
-      scores, titles = loaded(["42"])
+      scores, titles = loaded(["8842281e1d1347389f2ab93d60773d4d"])
       # st.write(classes[label[0]])    
     st.write("")
     # image = Image.open(BytesIO(content))
