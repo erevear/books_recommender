@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: cv-app
-        image: gcr.io/kagglx-book-recommender/books_recommender:$COMMIT_SHA
+        image: gcr.io/kagglx-book-recommender/books_recommender:v1
         ports:
         - containerPort: 8501
