@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookrec
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bookrecommender
+  template:
+    metadata:
+      labels:
+        app: bookrecommender
+    spec:
+      containers:
+      - name: cv-app
+        image: gcr.io/my-recommender-project-283816/myapp:v1
+        ports:
+        - containerPort: 8501
