@@ -35,4 +35,4 @@ if path is not None:
     st.write("")
     # image = Image.open(BytesIO(content))
     # st.image(image, caption='Classifying Image', use_column_width=True)
-    st.write(', '.join(titles))
+    st.write(f"Recommendations for user 8842281e1d1347389f2ab93d60773d4d: {titles[0, :3]}")

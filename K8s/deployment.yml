@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: cv-app
-        image: gcr.io/kagglx-book-recommender/books_recommender:v4
+        image: gcr.io/kagglx-book-recommender/books_recommender:v5
         ports:
         - containerPort: 8501
