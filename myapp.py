@@ -14,7 +14,8 @@ st.text("Provide a user ID to get book recommendations")
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-  model = tf.keras.models.load_model('/app/models/')
+  model = tf.saved_model.load('/app/models/')
+  # tf.saved_model.load
   return model
 
 with st.spinner('Loading Model Into Memory....'):
