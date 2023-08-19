@@ -30,7 +30,7 @@ if path is not None:
     st.write("Pulling recommendations :")
     with st.spinner('classifying.....'):
       # label =np.argmax(model.predict(decode_img(content)),axis=1)
-      scores, titles = loaded(["8842281e1d1347389f2ab93d60773d4d"])
+      scores, titles = model(["8842281e1d1347389f2ab93d60773d4d"])
       # st.write(classes[label[0]])    
     st.write("")
     # image = Image.open(BytesIO(content))

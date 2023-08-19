@@ -1,9 +1,9 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/kagglx-book-recommender/books_recommender:v3', '.']
+  args: ['build', '-t', 'gcr.io/kagglx-book-recommender/books_recommender:v4', '.']
   timeout: 180s
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/kagglx-book-recommender/books_recommender:v3']
+  args: ['push', 'gcr.io/kagglx-book-recommender/books_recommender:v4']
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: "bash"
   args:
