@@ -5,3 +5,5 @@ pandas
 matplotlib
 numpy
 requests
+scikit-learn
+pyvis
