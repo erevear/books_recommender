@@ -21,7 +21,8 @@ TF Serving is deployed to GKE via its Docker image. We set all of this up throug
 4. UI: We create another Kubernetes cluster and set of configs to deploy the UI (a Streamlit app) that allows us to interact with our prediction service. The app takes in the name of a book, turns that name into an index number, hits the prediction service with that value to pull in the learned embeddings for the book, then compares it to the rest of the model’s learned book embeddings (which were stored in a pkl file in cloud storage by the model training code). 
 Note: typically we would only need to pull in the learned embeddings, however, deploying the service with TF Serving was done for the sake of the exercise.
 We then return and graph a list of books similar to the one input by the user
-![Uploading giphy.gif…]()
+
+![giphy](https://github.com/erevear/books_recommender/assets/11822655/37a92fba-e29d-4288-aaca-e786e43f0c6f)
 
 Next steps
 Put monitoring in place to flag data drift
