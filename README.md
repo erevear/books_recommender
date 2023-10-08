@@ -7,9 +7,13 @@ This project was completed as part of the KaggleX mentorship program. The goal o
 1. Model: We built a two tower retrieval recommendation model that uses the tensorflow-recommenders package. This allows us to use a hybrid content and collaborative filtering system (system based both on the similarities between objects, but also on what users that have liked similar items also like). 
 Since we wanted a very simple ui we ended up using a cosine similarity model based only on the book embeddings. The two tower architecture captures semantic similarity between users and items and clusters things together in embedding space. We simply pull out the learned book embeddings and send them to a cosine similarity function when the user inputs a book title.
 
+![kaggle diagrams (1)](https://github.com/erevear/books_recommender/assets/11822655/2a7a972a-7097-4f45-9be0-0d500b0318d0)
+
 2.  Model training: The model training pipeline was built in TFX, and deployed and run in Vertex AI Pipelines via the Kubeflow Dag Runner. Running the pipeline requires a custom Docker image that contains the required TFX recommenders package.
 The pipeline pushes the trained model to a GCP Cloud Storage Bucket for the next step.
 Note: as the prediction service is using the learned embeddings instead of the model predictions, we use a serving signature to take in the index of the book name and return its embeddings.
+
+![kaggle diagrams (2)](https://github.com/erevear/books_recommender/assets/11822655/60a3a2a7-bff9-4967-88aa-fa94fcf88851)
 
 3. Prediction service: Once the trained model is available we leverage Tensorflow Serving and GKE to create an API that will allow us to access predictions. 
 TF Serving is deployed to GKE via its Docker image. We set all of this up through the configs in the K8s_serving folder, which we can load and run in GCP through the console editor. To apply the configs run kubectl apply -f on each file
