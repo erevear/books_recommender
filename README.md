@@ -12,6 +12,7 @@ We built a two tower retrieval recommendation model that uses the tensorflow-rec
 Since we wanted a very simple ui we ended up using a cosine similarity model based only on the book embeddings. The two tower architecture captures semantic similarity between users and items and clusters things together in embedding space. We simply pull out the learned book embeddings and send them to a cosine similarity function when the user inputs a book title.
 
 
+![model](https://github.com/erevear/books_recommender/assets/11822655/43b76ec8-f02b-437e-9a4f-01b79bb3c20a)
 
 <b>Model Training</b><br>
 The model training pipeline was built in TFX, and deployed and run in Vertex AI Pipelines via the Kubeflow Dag Runner. Running the pipeline requires a custom Docker image that contains the required TFX recommenders package.
@@ -37,7 +38,8 @@ The app takes in the name of a book, turns that name into an index number, hits 
 Note: typically we would only need to pull in the learned embeddings, however, deploying the service with TF Serving was done for the sake of the exercise.
 We then return and graph a list of books similar to the one input by the user
 
-![giphy](https://github.com/erevear/books_recommender/assets/11822655/37a92fba-e29d-4288-aaca-e786e43f0c6f)
+![sharp object giphy](https://github.com/erevear/books_recommender/assets/11822655/9a343cda-58c1-4883-bc32-74bd548e8807)
+
 
 <b>Next Steps</b><br>
 1. Put monitoring in place to flag data drift
