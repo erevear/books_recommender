@@ -11,7 +11,7 @@ This project was completed as part of the KaggleX mentorship program. The goal o
 We built a two tower retrieval recommendation model that uses the tensorflow-recommenders package. This allows us to use a hybrid content and collaborative filtering system (system based both on the similarities between objects, but also on what users that have liked similar items also like). 
 Since we wanted a very simple ui we ended up using a cosine similarity model based only on the book embeddings. The two tower architecture captures semantic similarity between users and items and clusters things together in embedding space. We simply pull out the learned book embeddings and send them to a cosine similarity function when the user inputs a book title.
 
-![kaggle diagrams (1)](https://github.com/erevear/books_recommender/assets/11822655/2a7a972a-7097-4f45-9be0-0d500b0318d0)
+
 
 <b>Model Training</b><br>
 The model training pipeline was built in TFX, and deployed and run in Vertex AI Pipelines via the Kubeflow Dag Runner. Running the pipeline requires a custom Docker image that contains the required TFX recommenders package.
@@ -19,7 +19,8 @@ The pipeline pushes the trained model to a GCP Cloud Storage Bucket for the next
 Note: as the prediction service is using the learned embeddings instead of the model predictions, we use a serving signature to take in the index of the book name and return its embeddings.
 
 
-![kaggle diagrams (2)](https://github.com/erevear/books_recommender/assets/11822655/8ca6d5be-9b03-4f85-844c-ccca0706af21)
+![kaggle diagrams (2)](https://github.com/erevear/books_recommender/assets/11822655/2a5daecf-50da-4218-b2dd-dbcfb8f8496f)
+
 
 <b>Prediction Service</b><br>
 Once the trained model is available we leverage Tensorflow Serving and GKE to create an API that will allow us to access predictions. 
@@ -28,7 +29,8 @@ TF Serving is deployed to GKE via its Docker image. We set all of this up throug
 <b>Serving Application</b><br>
 We create another Kubernetes cluster and set of configs to deploy the UI (a Streamlit app) that allows us to interact with our prediction service. We deploy all of this via Cloudbuild, triggered by pushing to a Github repo.
 
-![kaggle diagrams (3)](https://github.com/erevear/books_recommender/assets/11822655/85f4218d-190e-43bb-9827-80b00d93ed33)
+
+![kaggle diagrams (3)](https://github.com/erevear/books_recommender/assets/11822655/bfe21e30-7106-4ef4-8904-46f09e09f4a4)
 
 
 The app takes in the name of a book, turns that name into an index number, hits the prediction service with that value to pull in the learned embeddings for the book, then compares it to the rest of the model’s learned book embeddings (which were stored in a pkl file in cloud storage by the model training code). 
