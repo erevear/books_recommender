@@ -1,7 +1,8 @@
 <h2>Bookshelf Insights: Deploying Recommendation Systems with MLOps</h2>
 
 
-![kaggle diagrams (3)](https://github.com/erevear/books_recommender/assets/11822655/5a2a2880-e21a-4cf7-a32f-b3dd6a707339)
+
+![kaggle diagrams (3)](https://github.com/erevear/books_recommender/assets/11822655/ea44077f-bcc4-48bf-96fb-10883a24036e)
 
 
 This project was completed as part of the KaggleX mentorship program. The goal of this project was to build a general understanding of the tools and processes used to productionize machine learning models. We explored both serving and scaling a prediction service, as well as creating a pipeline for continuous training.
